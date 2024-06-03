@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S L | Blood donation</title>
+
+    <!-- add icon link -->
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" type="image/x-icon">
+
+    <!-- SEO -->
+    <meta name="Description" content="Sung blood donation details.">
+
+    <!-- Insert CSS style -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .column-1 {
+            float: left;
+            width: 60%;
+            padding: 2%;
+            font-size: 18px;
+        }
+
+        .column-2 {
+            float: left;
+            width: 40%;
+            padding: 2%;
+            font-size: 18px;
+        }
+
+        .column>ol>li {
+            text-align: left;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 852px) {
+
+            .column-1,
+            .column-2 {
+                width: 100%;
+            }
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .header-text-overlay {
+            position: absolute;
+            top: 20%;
+            left: 70%;
+            transform: translate(-30%, -50%);
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-text {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .header-subtext {
+            font-size: 20px;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .header-text-overlay {
+                top: 15%;
+                left: 70%;
+                transform: translate(-30%, -50%);
+            }
+
+            .header-text {
+                font-size: 30px;
+            }
+
+            .header-subtext {
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .header-text-overlay {
+                top: 13%;
+                left: 70%;
+                transform: translate(-30%, -50%);
+            }
+
+            .header-text {
+                font-size: 13px;
+            }
+
+            .header-subtext {
+                font-size: 7px;
+            }
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #ccc;
+        }
+
+        .timeline-content {
+            position: relative;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 1%;
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+        }
+
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+
+        .timeline-item.is-visible .timeline-content {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation-container"></div>
+
+    <header>
+        <img src="https://www.o2.co.uk/documents/1106106/8004980/iphone-14-carousel-xxl-1100-070623+%281%29.jpg/7f500d04-adac-4835-30be-0ac8a2d3a008?t=1686555709716"
+            alt="blood donation image" class="responsive-image">
+        <div class="header-text-overlay">
+            <h1 class="header-text">Blood donation</h1>
+            <p class="header-subtext">Make a real difference in our community and beyond.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="column-1">
+
+                <p>
+                    Here is why It is an important and beneficial activity for several reasons.
+                </p>
+
+                <ol>
+                    <strong>
+                        <li>Saves lives
+                    </strong>
+                    <br><br>
+                    Blood donation is a lifesaving act as it helps to provide blood to people who need it due to
+                    medical conditions or emergencies such as accidents, surgeries, and diseases.
+                    </li><br>
+
+                    <strong>
+                        <li>Increases blood supply
+                    </strong>
+                    <br><br>
+                    Blood banks and hospitals rely on voluntary blood donors to maintain an adequate supply of
+                    blood. Regular blood donations help to ensure that there is enough blood available for those who
+                    need it.
+                    </li><br>
+
+                    <strong>
+                        <li>Promotes health
+                    </strong>
+                    <br><br>
+                    Blood donation can be a healthy activity for the donor as well. It can help to reduce the risk
+                    of heart disease and stroke by reducing the amount of iron in the blood. Additionally, regular
+                    blood donations can help to maintain healthy iron levels and reduce the risk of certain cancers.
+                    </li><br>
+
+                    <strong>
+                        <li>Free health check-up
+                    </strong>
+                    <br><br>
+                    Before donating blood, donors undergo a mini-physical that includes a check of blood pressure,
+                    hemoglobin levels, and other health indicators. This can be a valuable health check-up for
+                    donors, and they may become aware of health issues that need attention.
+                    </li><br>
+
+                    <strong>
+                        <li>No harm to the body
+                    </strong>
+                    <br><br>
+                    Blood donation is a safe process, and the body replenishes the lost blood within a few weeks.
+                    There is no risk of contracting infections or diseases by donating blood, as all equipment used
+                    is sterile and disposable.
+                    </li><br>
+                </ol>
+            </div>
+
+            <div class="column-2">
+                <p>
+                    I'm please to share that I've achieved significant milestones in my blood donation journey by
+                    donating blood on multiple occasions.
+
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    16 Dec 20
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    31 Mar 21
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    23 Jun 21
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    29 Sep 21
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    29 Nov 22
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+
+                            <div class="column">
+                                <h3>
+                                    3 Nov 23
+                                </h3>
+                            </div>
+                            <p>New Malden, Christ Church Centre</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main>
+        <p>
+            If you want to take your part please click <a href="https://www.blood.co.uk/">Here</a>
+        </p>
+    </main>
+
+    <script>
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            function callbackFunc() {
+                for (let i = 0; i < timelineItems.length; i++) {
+                    const timelineItem = timelineItems[i];
+                    const boundingRect = timelineItem.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+
+                    if (boundingRect.top < viewportHeight) {
+                        timelineItem.classList.add('is-visible');
+                    }
+                }
+            }
+
+            window.addEventListener('load', callbackFunc);
+            window.addEventListener('resize', callbackFunc);
+            window.addEventListener('scroll', callbackFunc);
+        }
+
+        animateTimeline();
+    </script>
+
+    <footer>
+        <hr>
+        <div>
+            <p>
+                © 2023 Sung Lee. All rights reserved.</p>
+            <p>
+        </div>
+
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navigation.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navigation-container").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log("Error fetching navigation bar:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>

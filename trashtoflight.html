@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S L | About</title>
+    <!-- add icon link -->
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" type="image/x-icon">
+    <!-- SEO -->
+    <meta name="Description" content="list of Sung's projects.">
+    <!-- Insert CSS style -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Default styles for the countBox class */
+        .countBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px;
+            width: 50%;
+            /* Set the width to 50% */
+            text-align: center;
+            /* Apply border-radius for rounded corners */
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+            /* Add a shadow for a card-like effect */
+            background-color: white;
+            /* Set a white background */
+
+            font-size: 30px;
+            /* Adjust the size to your preference */
+
+        }
+
+        /* Media query for screens with a maximum width of 768px (mobile view) */
+        @media screen and (max-width: 768px) {
+            .countBox {
+                width: 100%;
+                /* Make it full width on mobile */
+                margin-top: 10px;
+                /* Adjust margin for mobile */
+
+                font-size: 35px;
+            }
+        }
+
+        /* Additional style for grouping containers */
+        .countGroup {
+            display: flex;
+            flex-wrap: wrap;
+            /* Enable wrapping for mobile view */
+            justify-content: space-between;
+            /* Create space between boxes */
+        }
+
+        /* Define different background colors for each countBox */
+        .countBox1 {
+            background-color: #E3E3E3;
+            /* Change to your desired background color */
+            margin: auto;
+        }
+
+        .countBox2 {
+            background-color: #F0F0F0;
+            /* Change to your desired background color */
+            margin: auto;
+        }
+
+        .countBox3 {
+            background-color: #F0F0F0;
+            /* Change to your desired background color */
+            margin: auto;
+        }
+
+        .countBox4 {
+            background-color: #E3E3E3;
+            /* Change to your desired background color */
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation-container"></div>
+    <main>
+        <!-- Group 1: countBox1 and countBox2 -->
+        <div class="countGroup">
+            <div class="countBox countBox1">
+                <strong>Goal</strong>
+
+                Number of Can/Plastic to recycle
+                <br>
+                1,480
+                <br>
+                Nectar point
+                <br>
+                14,800
+                <br>
+                Avios point
+                <br>
+                9,250
+            </div>
+            <div class="countBox countBox3">
+
+                <strong>Current</strong>
+
+                <div class="chartLabel">Can/Plastic recyled</div>
+                <div class="countNumber" id="totalValue"></div>
+
+                <div class="chartLabel">Nectar point</div>
+                <div class="countNumber" id="totalAviosValue"></div>
+
+                <div class="chartLabel">Avios point</div>
+                <div class="countNumber" id="totalNectarValue"></div>
+
+            </div>
+        </div>
+        <!-- Group 2: countBox3 and countBox4 -->
+        <div class="countGroup">
+
+
+            <div class="countBox countBox2">
+                <div class="chartLabel">Number of Plastics recyled</div>
+                <div class="countNumber" id="plasticValue"></div>
+            </div>
+
+            <div class="countBox countBox4">
+                <div class="chartLabel">Number of Cans recyled</div>
+                <div class="countNumber" id="cansValue"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div>
+            <p>
+                © 2023 Sung Lee. All rights reserved.</p>
+            <p>
+        </div>
+    </footer>
+
+
+    <script>
+
+        // Data for each month (January to December)
+        var dataPlastics = [36, 44, 121, 21, 110, 9, 36, 0, 0, 0, 0, 0];
+        var dataCans = [26, 91, 73, 21, 33, 86, 50, 0, 0, 0, 0, 0];
+
+        var totalPlastics = dataPlastics.reduce((a, b) => a + b, 0); // Sum of plastics recycled
+        var totalCans = dataCans.reduce((a, b) => a + b, 0); // Sum of cans recycled
+        var totalRecycled = totalPlastics + totalCans; // Total items recycled (plastics + cans)
+        var totalAviosValue = totalRecycled * 10; // Total Avios points earned (each item = 10 points)
+        var totalNectarValue = Math.round(totalAviosValue / 1.6); // Total Nectar points earned (each Avios point = 1.6 Nectar points)
+
+        // Counting number effect for Plastics
+        var plasticValue = document.getElementById('plasticValue');
+        var plasticCount = 0;
+        var plasticInterval = setInterval(function () {
+            if (plasticCount <= totalPlastics) {
+                plasticValue.textContent = plasticCount.toLocaleString();
+                plasticCount += 5;
+            } else {
+                clearInterval(plasticInterval);
+                plasticValue.textContent = totalPlastics.toLocaleString();
+            }
+        }, 30);
+
+        // Counting number effect for Cans
+        var cansValue = document.getElementById('cansValue');
+        var cansCount = 0;
+        var cansInterval = setInterval(function () {
+            if (cansCount <= totalCans) {
+                cansValue.textContent = cansCount.toLocaleString();
+                cansCount += 5;
+            } else {
+                clearInterval(cansInterval);
+                cansValue.textContent = totalCans.toLocaleString();
+            }
+        }, 30);
+
+        // Counting number effect for Total
+        var totalValue = document.getElementById('totalValue');
+        totalValue.textContent = totalRecycled.toLocaleString();
+
+        var totalAviosValueDisplay = document.getElementById('totalAviosValue');
+        var totalNectarValueDisplay = document.getElementById('totalNectarValue');
+
+        var totalCount = 0;
+        var totalInterval = setInterval(function () {
+            if (totalCount <= totalRecycled) {
+                totalValue.textContent = totalCount.toLocaleString();
+                totalAviosValueDisplay.textContent = totalAviosValue.toLocaleString();
+                totalNectarValueDisplay.textContent = totalNectarValue.toLocaleString();
+
+                totalCount += 60;
+            } else {
+                clearInterval(totalInterval);
+                totalValue.textContent = totalRecycled.toLocaleString();
+                totalAviosValueDisplay.textContent = totalAviosValue.toLocaleString();
+                totalNectarValueDisplay.textContent = totalNectarValue.toLocaleString();
+
+            }
+        }, 30);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navigation.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navigation-container").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log("Error fetching navigation bar:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>
