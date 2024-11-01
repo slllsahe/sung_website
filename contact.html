@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S L | Contact</title>
+
+    <!-- add icon link -->
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" type="image/x-icon">
+
+    <!-- SEO -->
+    <meta name="Description" content="Contact details for Sung.">
+
+    <!-- Insert Navigation CSS style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Insert Landing page CSS style -->
+    <link rel="stylesheet" href="landingpage.css">
+
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+            padding: 4%;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .column h2:nth-child(odd) {
+            font-size: 24px;
+            /* Increase font size for headings */
+            margin-bottom: 20px;
+            /* Add spacing below the heading */
+            color: #333;
+            /* Darken the color */
+        }
+
+        /* Style for the Contact details */
+        .column h2:nth-child(even) {
+            font-size: 24px;
+            /* Increase font size for headings */
+            margin-bottom: 20px;
+            /* Add spacing below the heading */
+            color: #333;
+            /* Darken the color */
+        }
+
+        .column p {
+            font-size: 18px;
+            /* Adjust font size for paragraphs */
+            margin-bottom: 10px;
+            /* Add spacing below each paragraph */
+        }
+
+        /* Style for the map iframe */
+        .column iframe {
+            width: 100%;
+            /* Make the map fill the entire column */
+            height: 400px;
+            /* Set a fixed height for the map */
+            border: none;
+            /* Remove border from the map */
+            border-radius: 10px;
+            /* Add border-radius for rounded corners */
+            overflow: hidden;
+            /* Hide overflow content */
+        }
+
+        .linkedin-icon {
+            text-decoration: none;
+            /* Remove underline from the hyperlink */
+            color: inherit;
+            /* Inherit color on hover */
+        }
+
+        .linkedin-icon::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuGLEgRk1Rg5VTn5H0ug_hQ2hvZy31w8dChw&usqp=CAU');
+            /* Path to your LinkedIn icon image */
+            /* Path to your LinkedIn icon image */
+            background-size: cover;
+            margin-left: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .linkedin-icon:hover::before {
+            transform: translateY(-3px);
+            /* Adjust as needed */
+        }
+
+        .linkedin-icon:hover::after {
+            content: "";
+            display: block;
+            height: 2px;
+            /* Adjust thickness as needed */
+            width: 100%;
+            background-color: #000;
+            /* Adjust color as needed */
+        }
+
+        /* Center the second column containing contact details on desktop view */
+        @media screen and (min-width: 768px) {
+            .column.contact-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 11%;
+            }
+        }
+
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 768px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation-container"></div>
+
+    <header>
+        <h3>Hello again</h3>
+        <p>
+            I'd love to hear from you. <br>
+            Here's how you can reach me out
+            <br>
+        </p>
+        <hr>
+    </header>
+
+    <main>
+
+        <div class="row">
+            <div class="column">
+                <h2>
+                    London
+                </h2>
+
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.764407675767!2d-0.2757165228507224!3d51.37062762068516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876098c5f35fa4d%3A0x834ffe1a3f0cdaa3!2sCurtis%20Rd%2C%20Epsom%20KT19%200LG!5e0!3m2!1sen!2suk!4v1685373788671!5m2!1sen!2suk"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                        allowfullscreen="" loading="lazy" frameborder="0" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="column contact-details">
+                <h2>Contact details</h2>
+                <p>leefam6771919300@gmail.com</p>
+                <p>+44(0)794 663 5451</p>
+                <!-- Add LinkedIn icon with CSS ::after pseudo-element -->
+                <a href="https://www.linkedin.com/in/sung-lee-a020a013b/" target="_blank" class="linkedin-icon">
+                    LinkedIn
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <hr>
+        <div>
+            <p>
+                © 2023 Sung Lee. All rights reserved.</p>
+            <p>
+        </div>
+
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navigation.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navigation-container").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log("Error fetching navigation bar:", error);
+                });
+        });
+    </script>
+
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/665df190981b6c564778108e/1hvfff735';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+</body>
+
+</html>

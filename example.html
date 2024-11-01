@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Effect</title>
+    <style>
+        :root {
+            font-family: Helvetica;
+            --ColorDarkA: hsl(0, 0%, 0%);
+            --ColorDarkB: hsl(0, 0%, 18%);
+            --ColorWhiteA: hsl(0, 0%, 94%);
+            --ColorWhiteB: hsl(0, 0%, 90%);
+            --FontH1: 12vw;
+            --FontH2: 7.5vw;
+            --FontParagraph: 4vw;
+            --GoldenRatio7: 5vw;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            color: var(--ColorDarkA);
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--ColorWhiteA);
+            opacity: 0;
+            transition: opacity 1.3s ease;
+            overflow-x: hidden; /* Hides horizontal scrollbar */
+            overflow-y: scroll; /* Ensures vertical scrolling */
+        }
+
+        #wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #wrapper h1 {
+            font-size: var(--FontH2);
+        }
+
+        #wrapper h1 span {
+            color: var(--ColorDarkB);
+        }
+
+        #wrapper p {
+            position: absolute;
+            bottom: var(--GoldenRatio7);
+            color: var(--ColorDarkB);
+            font-size: var(--FontParagraph);
+        }
+
+        #ImgWrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 2200px;
+            background: var(--ColorDarkA);
+        }
+
+        #ImgWrapper img {
+            position: absolute;
+            box-shadow: 0 0 31px black;
+            transition: transform 1s ease;
+        }
+
+        #ImgWrapper #img1 {
+            z-index: 1;
+            height: 50vh;
+            bottom: 15%;
+            left: 5%;
+        }
+
+        #ImgWrapper #img2 {
+            z-index: 2;
+            height: 45vh;
+            bottom: 40%;
+            right: 5%;
+        }
+
+        #ImgWrapper #img3 {
+            z-index: 3;
+            height: 40vh;
+            bottom: 22%;
+            right: 25%;
+        }
+
+        #ImgWrapper #img4 {
+            z-index: 4;
+            height: 31vh;
+            bottom: 55%;
+            left: 13%;
+        }
+
+        #ImgWrapper #img5 {
+            z-index: 5;
+            height: 50vh;
+            bottom: 22%;
+            left: 36%;
+        }
+
+        #ImgWrapper #img6 {
+            z-index: 6;
+            height: 31vh;
+            bottom: 13%;
+            left: 13%;
+        }
+
+        #ImgWrapper #img7 {
+            z-index: 7;
+            height: 31vh;
+            bottom: 10%;
+            right: 13%;
+        }
+
+        body {
+    overflow-x: hidden; /* This hides the horizontal scrollbar */
+    overflow-y: scroll; /* This ensures vertical scrolling is still enabled */
+}
+
+
+        @media (max-width: 768px) {
+            #ImgWrapper #img1,
+            #ImgWrapper #img2,
+            #ImgWrapper #img3,
+            #ImgWrapper #img4,
+            #ImgWrapper #img5,
+            #ImgWrapper #img6,
+            #ImgWrapper #img7 {
+                height: 30vh;
+            }
+
+            #wrapper h1 {
+                font-size: 10vw;
+            }
+
+            #wrapper p {
+                font-size: 3.5vw;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #ImgWrapper #img1,
+            #ImgWrapper #img2,
+            #ImgWrapper #img3,
+            #ImgWrapper #img4,
+            #ImgWrapper #img5,
+            #ImgWrapper #img6,
+            #ImgWrapper #img7 {
+                height: 25vh;
+            }
+
+            #wrapper h1 {
+                font-size: 8vw;
+            }
+
+            #wrapper p {
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!----------------------------------------------------LandingPage Intro--------------------------------------------------->
+    <div id="wrapper">
+        <h1>The Weeknd <br> <span>Scroll Effect</span></h1>
+        <p>Scroll Down</p>
+    </div>
+    <!----------------------------------------------------/LandingPage Intro--------------------------------------------------->
+    <!----------------------------------------------------LandingPage--------------------------------------------------->
+    <div id="ImgWrapper">
+        <img id="img1" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%207.jpeg" alt="">
+        <img id="img2" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%202.jpeg" alt="">
+        <img id="img3" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%206.jpeg" alt="">
+        <img id="img4" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%205.jpeg" alt="">
+        <img id="img5" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%203.jpeg" alt="">
+        <img id="img6" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%204.jpeg" alt="">
+        <img id="img7" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%201.jpeg" alt="">
+    </div>
+    <!----------------------------------------------------/LandingPage--------------------------------------------------->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.style.opacity = 100;
+
+            // Scroll effect
+            window.addEventListener('scroll', function () {
+                const scrollY = window.scrollY;
+
+                document.querySelectorAll('#ImgWrapper img').forEach((img, index) => {
+                    const depth = (index + 1) * 1;
+                    img.style.transform = `translateZ(${scrollY - depth}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

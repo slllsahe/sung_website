@@ -1,0 +1,17 @@
+header {
+    padding-top: 4em;
+    text-align: center;
+}
+
+/* Break line */
+hr {
+    border: none;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #333;
+}
+
+footer {
+    text-align: center;
+}
