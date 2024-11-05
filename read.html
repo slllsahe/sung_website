@@ -33,8 +33,6 @@
             background-color: #f8f8f8;
             line-height: 1.6;
             color: #333;
-            padding-bottom: 50px;
-            /* Space for footer */
         }
 
         /* Card Container */
@@ -60,7 +58,8 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
-            padding-bottom: 80px; /* Add space for the button */
+            padding-bottom: 80px;
+            /* Add space for the button */
         }
 
         .card h2 {
@@ -101,7 +100,7 @@
             bottom: 20px;
             margin-top: auto;
             padding: 10px 20px;
-            border-radius: 30px;
+            border-radius: 12px;
             background-color: #333;
             color: white;
             font-size: 14px;
@@ -140,7 +139,7 @@
             background-color: #333;
             color: white;
             padding: 10px 20px;
-            border-radius: 30px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 500;
             border: none;
@@ -169,7 +168,7 @@
             background-color: black;
             color: white;
             padding: 10px;
-            border-radius: 30px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -257,7 +256,7 @@
                 width: 100%;
                 height: auto;
                 /* Ensures the image scales nicely */
-                border-radius: 10px;
+                border-radius: 12px;
                 object-fit: cover;
                 /* Ensures image covers its container without being stretched */
             }
@@ -767,16 +766,6 @@
 
     </div>
 
-    <!--Footer section-->
-    <footer>
-        <hr>
-        <div>
-            <p>
-                © 2023 Sung Lee. All rights reserved.</p>
-            <p>
-        </div>
-    </footer>
-
     <!--Read page JS section-->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -901,6 +890,31 @@
                 });
         });
     </script>
+
+    <!--Footer section-->
+    <footer>
+        <!--Breadcrumbs-->
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="about.html">About</a></li>
+
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="read.html">Read</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <div>
+            <p>
+                © 2023 Sung Lee. All rights reserved.</p>
+            <p>
+        </div>
+    </footer>
+
 
 </body>
 
