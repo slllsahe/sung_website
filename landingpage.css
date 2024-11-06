@@ -1,3 +1,4 @@
+/* Header section */
 header {
     padding-top: 4em;
     text-align: center;
@@ -12,6 +13,8 @@ hr {
     background-color: #333;
 }
 
+/* Footer section */
 footer {
+    padding-bottom: 1em;
     text-align: center;
 }
