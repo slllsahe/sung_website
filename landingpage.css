@@ -7,7 +7,7 @@ header {
 /* Break line */
 hr {
     border: none;
-    height: 1px;
+    height: 2px;
     width: 90%;
     margin: 0 auto;
     background-color: #333;
