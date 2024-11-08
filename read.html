@@ -885,6 +885,7 @@
                 })
                 .catch(error => {
                     console.log("Error fetching navigation bar:", error);
+                    document.getElementById("navigation-container").innerHTML = "<p>Navigation bar failed to load.</p>";
                 });
         });
     </script>

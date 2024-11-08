@@ -59,15 +59,9 @@
         }
 
         @media screen and (max-width: 480px) {
-            /* .grid-container {
-                grid-template-columns: 1fr;
-                /* Single column for merged item 
-                }
-                */
-
+          
             .grid-item.merged {
                 grid-column: span 4;
-                /* Make merged item span full row */
             }
         }
     </style>
@@ -158,13 +152,13 @@
                 <div class="grid-item">Figma</div>
                 <div class="grid-item">20%*</div>
 
-                <div class="grid-item">Adobe Photoshop</div>
+                <div class="grid-item adobe-photoshop">Adobe Photoshop</div> <!-- This will change to "PSD" on mobile -->
                 <div class="grid-item">20%*</div>
 
-                <div class="grid-item">Adobe XD</div>
+                <div class="grid-item adobe-illustrator">Adobe Illustrator</div> <!-- This will change to "Ai" on mobile -->
                 <div class="grid-item">10%*</div>
 
-                <div class="grid-item">Adobe Premiere Pro</div>
+                <div class="grid-item adobe-premiere-pro">Adobe Premiere Pro</div> <!-- This will change to "Pr" on mobile -->
                 <div class="grid-item">10%*</div>
             </div>
 
@@ -184,13 +178,7 @@
                 <div class="grid-item">Adobe Analytics</div>
                 <div class="grid-item">10%*</div>
 
-                <div class="grid-item">Adobe Target</div>
-                <div class="grid-item">10%*</div>
-
                 <div class="grid-item">Content Square</div>
-                <div class="grid-item">50%*</div>
-
-                <div class="grid-item">Edge digital shelf</div>
                 <div class="grid-item">50%*</div>
 
                 <div class="grid-item">Google data studio</div>
@@ -223,7 +211,7 @@
                 <div class="grid-item">SAP</div>
                 <div class="grid-item">60%*</div>
 
-                <div class="grid-item">BreathHR</div>
+                <div class="grid-item">BreatheHR</div>
                 <div class="grid-item">80%*</div>
 
                 <div class="grid-item">JIRA</div>
@@ -239,8 +227,7 @@
         <hr>
         <p>
             <sup>*</sup>Figures are based on personal measurements and past achievements. The full list can be found
-            here.
-            <a href="http://">here</a>.
+            <a href="http://" target="_blank" rel="noopener noreferrer">here</a>.
         </p>
 
         <br>
@@ -251,7 +238,7 @@
             <p>
         </div>
     </footer>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             fetch("navigation.html")
@@ -261,10 +248,31 @@
                 })
                 .catch(error => {
                     console.log("Error fetching navigation bar:", error);
+                    document.getElementById("navigation-container").innerHTML = "<p>Navigation bar failed to load.</p>";
                 });
+    
+            function updateText() {
+                const screenWidth = window.innerWidth;
+    
+                const photoshopItem = document.querySelector('.adobe-photoshop');
+                const illustratorItem = document.querySelector('.adobe-illustrator');
+                const premiereItem = document.querySelector('.adobe-premiere-pro');
+    
+                if (screenWidth <= 480) {
+                    if (photoshopItem) photoshopItem.innerText = "PSD";
+                    if (illustratorItem) illustratorItem.innerText = "Ai";
+                    if (premiereItem) premiereItem.innerText = "Pr";
+                } else {
+                    if (photoshopItem) photoshopItem.innerText = "Adobe Photoshop";
+                    if (illustratorItem) illustratorItem.innerText = "Adobe Illustrator";
+                    if (premiereItem) premiereItem.innerText = "Adobe Premiere Pro";
+                }
+            }
+    
+            updateText(); // Run on load
+            window.addEventListener('resize', updateText); // Run on resize
         });
     </script>
-
 </body>
 
 </html>
