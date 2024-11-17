@@ -16,7 +16,33 @@
     <!-- Insert CSS style -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Insert Landing page CSS style -->
+    <link rel="stylesheet" href="landingpage.css">
+
     <style>
+        /* General Reset and Styling */
+        * {
+            margin: revert;
+        }
+
+        p {
+            font-size: 19px;
+        }
+
+        ol,
+        ul,
+        li {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Columns Layout */
         .column {
             float: left;
             width: 50%;
@@ -25,32 +51,31 @@
             font-size: 18px;
         }
 
-        /* Clear floats after the columns */
         .row:after {
             content: "";
             display: table;
             clear: both;
         }
 
-        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 852px) {
             .column {
                 width: 100%;
             }
         }
 
+        /* Header Styling */
         .header {
             font-size: 30px;
             padding: 50px;
         }
-    </style>
 
-    <style>
+        /* Banner Grid */
         .banner-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             justify-items: stretch;
+            background-color: white;
         }
 
         @media screen and (min-width: 1756px) {
@@ -60,10 +85,28 @@
             }
         }
 
+        /* Banner Text */
+        .banner-text,
+        .banner-text2 {
+            padding: 50px 150px;
+            background-color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .banner-text,
+            .banner-text2 {
+                padding: 0px;
+            }
+        }
+
+        /* Video Container */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+            padding-bottom: 30%;
+            /* Maintain aspect ratio */
+            max-width: 80%;
+            margin: 150px auto 0;
             overflow: hidden;
         }
 
@@ -73,8 +116,38 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 15px;
         }
 
+        @media screen and (max-width: 768px) {
+            .video-container {
+                max-width: 90%;
+                padding-bottom: 50%;
+            }
+        }
+
+        /* Button Styling */
+        button {
+            border: none;
+            border-radius: 5%;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+
+    <style>
         .banner-image {
             background-image: url('path/to/image.jpg');
             background-size: cover;
@@ -83,10 +156,13 @@
         }
 
         .banner-text {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 50px 150px 50px 150px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .banner-text {
+                padding: 0px;
+            }
         }
 
         h1 {
@@ -116,13 +192,10 @@
         button:focus {
             outline: none;
         }
-
-        .header-para {
-            text-align: left;
-        }
     </style>
 
     <style>
+        
         .slider-container {
             width: 100%;
             overflow-x: scroll;
@@ -236,11 +309,14 @@
 
         .button-row {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 25px;
         }
 
         .button-row button {
-            margin-right: 10px;
             /* Adjust spacing between buttons if desired */
+            margin-right: 10px;
         }
 
         .responsive-image {
@@ -248,48 +324,112 @@
             height: auto;
         }
     </style>
-
 </head>
 
 <body>
     <div id="navigation-container"></div>
+
+    <!--Video header-->
     <header>
-        <div class="banner-grid">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/M1_zb10euFo" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </div>
-            <div class="banner-text">
-                <h1>Recycling is not just Recycling</h1>
-                <p class="header-para">We all know recycling is important for various reasons, such as reducing waste,
-                    conserving natural resources, mitigating pollution, and combating climate change.
-                    <br><br>
-                    I ultimately believe that everyone should play their part to change our <span
-                        style="font-family: cursive; font-weight: 100; font-size: 1.3em; line-height: 0.5;text-decoration: rgb(179, 229, 179) wavy underline;">
-                        only one
-                        planet</span> to live.
-                </p>
-            </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/M1_zb10euFo" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
         </div>
     </header>
 
+    <!--Main-->
     <main>
-        <div class="div-card">
-            <h1>Who's taking their part?</h1>
-            <p>
-                The brand I love impresses me with their genuine dedication to combat climate change, showcasing
-                sincerity through their actions not just words.
-                <br>
+        <div class="banner-text">
+            <h1>Recycling is More Than Just Recycling</h1>
 
-                They actively reduce their carbon footprint, invest in renewable energy, and implement eco-friendly
-                practices across their operations.
-                <br>
-                Their transparent reporting and ambitious targets inspire others to
-                join their cause, making them a truly admirable company.
+            <p class="header-para">I firmly believe that everyone has a role to play in protecting our <span
+                    style="font-family: cursive; font-weight: 100; font-size: 1.3em; line-height: 0.5;text-decoration: rgb(179, 229, 179) wavy underline;">
+                    only one
+                    planet</span> to live.
             </p>
 
+            <p>
+                More and more people recycle everyday. This helps to reduce the need for landfill and more costly forms
+                of disposal. Recycling also reduces the need for extracting (mining, quarrying and logging), refining
+                and processing raw materials all of which create substantial air and water pollution. This helps to save
+                energy, reducing greenhouse gas emissions and helping to tackle climate change.
+            </p>
+
+            <p>
+                Recycling may seem like a small step, but it’s a powerful tool for creating positive
+                change.
+            </p>
+
+            <p>
+                By making a conscious effort to recycle, we can reduce waste, conserve valuable resources, and
+                safeguard the planet for future generations.
+            </p>
+
+            <p>
+                Together, we have the power to create a cleaner, greener world and make it a better place for everyone.
+            </p>
+
+        </div>
+
+        <div class="banner-grid">
+            <img src="https://media.licdn.com/dms/image/C5622AQEbqductXSzJQ/feedshare-shrink_800/0/1611406808633?e=2147483647&v=beta&t=jTU9YEl8OMaFqV66p4aIaUz87OIvoGatVIksBXOXj-w"
+                alt="Image" class="responsive-image">
+
+            <div class="banner-text">
+                <h1>The impact of recycling</h1>
+
+                <p class="header-para">Whilst recycled materials are valuable commodities in the worldwide market and
+                    are financially important; recycling is good for the environment too. It makes best use of our
+                    limited natural resources.
+                </p>
+
+                <p>
+                    Recycling is a real success story and we should be proud of what we have achieved as a nation – but
+                    there is still much more we can do.
+                </p>
+
+                <p>
+                    In 2008-09 over 27 million tonnes of household waste was collected by local authorities. Of this:
+                <ul>
+                    <li>50% of this waste was sent to landfill;</li>
+                    <li>37% was recycled or composted; and </li>
+                    <li>12% was incinerated for energy recovery.</li>
+                </ul>
+                </p>
+
+                <p>
+                    The amount of household waste we recycled in 2008 reached an impressive 8.7 million tonnes. That
+                    alone saved the same amount of CO2 that nearly a million return flights from London to Sydney would
+                    produce.
+                </p>
+
+                <p>
+                    Together, we can create a cleaner, greener world and make it a better place for everyone.
+                </p>
+
+                <div class="button-row">
+                    <button id="redirectButton">Learn more</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-text">
+            <h1>Which Brands taking their part?</h1>
+
+            <p class="header-para">I actively support brands that are committed to doing their part for the planet.
+            </p>
+
+            <p>
+                These companies take meaningful steps to reduce their carbon footprint, invest in renewable energy, and
+                implement eco-friendly practices throughout their operations. Their transparent reporting and ambitious
+                sustainability targets not only set an example but also inspire others to follow suit, making them truly
+                admirable leaders in the fight for a greener future.
+            </p>
+        </div>
+
             <div class="slider-container">
+                
                 <div class="slider">
                     <div class="slider-card">
                         <img src="data:image/png;base64,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"
@@ -348,45 +488,24 @@
                         <p><a href="https://www.toogoodtogo.com/en-gb/user">Reduce waste, save the planet</p></a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="banner-grid">
-
-            <div class="banner-text">
-                <h1>We can change the world and make it better place.</h1>
-
-                <p class="header-para">We can change the world for the better, and one way we can do that is by being
-                    mindful of our actions and their impact on the environment. Recycling is just one small action but
-                    powerful
-                    way that we can make a difference. By making a conscious effort to recycle, we can help reduce
-                    waste, conserve resources, and protect the planet for future generations.
-                    <br>
-                    Together, we can create a cleaner, greener world and make it a better place for everyone.
-
-                </p>
-
-                <div class="button-row">
-                    <button id="redirectButton">Learn more</button>
-                </div>
-            </div>
-
-            <img src="https://media.licdn.com/dms/image/C5622AQEbqductXSzJQ/feedshare-shrink_800/0/1611406808633?e=2147483647&v=beta&t=jTU9YEl8OMaFqV66p4aIaUz87OIvoGatVIksBXOXj-w"
-                alt="Image" class="responsive-image">
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
         </div>
 
-        <div class="div-card">
-            <h1>My Story ㅡ Think what you can do then Act Immediately</h1>
+        <div class="banner-text2">
+            <h1>My Story</h1>
             <p>
-                In order to do my part, I ensure that I separate my waste, use reusable bags,
-                minimise
-                food waste, recycle electronics, and support eco-friendly businesses, among other things.
-                <br> However, I don't stop there.
-                I am always on the lookout for other opportunities to inspire and encourage myself and
-                others to adopt environmentally sustainable practices.
-                <br>
-                By actively engaging in such activities, I am doing my part to help protect the environment, and I hope
-                to
-                inspire others to do the same.
+                To do my part for the environment, I make a conscious effort to separate my waste, use reusable bags,
+                minimise food waste, recycle electronics, and support eco-friendly businesses, among other sustainable
+                habits.
+            </p>
+            <p>
+                But I don’t stop there. I’m constantly seeking new ways to inspire and encourage both myself and others
+                to embrace environmentally sustainable practices.
+            </p>
+            <p>
+                By actively engaging in these efforts, I aim to contribute to the protection of our planet and hope to
+                motivate others to join me in making a positive impact.
             </p>
 
             <div class="card" data-category="category1">
@@ -395,54 +514,17 @@
                 <h2>Trash2Flight</h2>
                 <p>I turned "plastics&cans" into a flight ticket.</p>
                 <button class="more-info-button">More Info</button>
-                <div class="expanded-card" style="text-align: center;">
-    
-                    <button class="close-button">Close</button>
-                    <br>
-                    
-                    <h1>
-                        Every 400 Nectar points converted is 250 Avios
-                    </h1>
-
-                    <div style="position: relative; overflow: hidden; padding-bottom: 30%;">
-                        <iframe src="https://www.youtube.com/embed/T0otHug4uic?si=Eb_eozEqcvQQyWPu&amp;start=55"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 70%;"></iframe>
-                    </div>
-
-                    <h2 style="padding: 10px; padding-left: 13%; padding-right: 13%;">
-                        Some of Sainsbury's stores have a reverse vending recycling machine that allows customers to
-                        return and earn 5p coupons or 10 nectar points per bottle towards their shop.
-                    </h2>
-
-
-                    <p>
-                    <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ol>
-                    </p>
-
-                    <p style="padding: 10px; padding-left: 13%; padding-right: 13%;">
-                        A minimum of 400 Nectar points is necessary for converting them into Avios. Through the use of a
-                        reverse vending machine, I earned Nectar points, which were then converted to Avios points. This
-                        was achieved by diligently accumulating a sufficient number of points, enabling the purchase of
-                        my flight ticket to Paris.
-                    </p>
-
-                    <p>
-                        
-                    </p>
-
-                </div>
-            
-            </div>  
+            </div>
     </main>
+
+    <footer>
+        <hr>
+        <div>
+            <p>
+                © 2023 Sung Lee. All rights reserved.
+            <p>
+        </div>
+    </footer>
 
     <script>
         document.getElementById("redirectButton").addEventListener("click", function () {
@@ -451,105 +533,94 @@
         });
     </script>
 
-
     <script>
-
-
-        document.addEventListener('DOMContentLoaded', function () {
+         document.addEventListener('DOMContentLoaded', function () {
             const slider = document.querySelector('.slider');
-            const prevBtn = document.createElement('button');
-            const nextBtn = document.createElement('button');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
 
-            prevBtn.textContent = '<';
-            nextBtn.textContent = '>';
-
-            prevBtn.classList.add('prev-btn');
-            nextBtn.classList.add('next-btn');
-
-            document.querySelector('.slider-container').appendChild(prevBtn);
-            document.querySelector('.slider-container').appendChild(nextBtn);
-
-            const sliderCards = document.querySelectorAll('.slider-card');
-            const slideWidth = sliderCards[0].offsetWidth;
-            const totalSlides = sliderCards.length;
+            const slideWidth = document.querySelector('.slider-card').offsetWidth + 500; // Adjust for margin
+            const totalSlides = document.querySelectorAll('.slider-card').length;
 
             let currentIndex = 0;
 
+            function updateSliderPosition() {
+                slider.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+            }
+
             prevBtn.addEventListener('click', function () {
-                currentIndex = (currentIndex - 1.05 + totalSlides) % totalSlides;
-                updateSliderPosition();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSliderPosition();
+                }
             });
 
             nextBtn.addEventListener('click', function () {
-                currentIndex = (currentIndex + 1.05) % totalSlides;
-                updateSliderPosition();
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateSliderPosition();
+                }
             });
-
-            function updateSliderPosition() {
-                const targetScrollLeft = currentIndex * slideWidth;
-                slider.parentNode.scrollLeft = targetScrollLeft;
-            }
         });
     </script>
 
-    <footer>
-        <br><br><br>
-        <hr>
-        <div>
-            <p>
-                © 2023 Sung Lee. All rights reserved.</p>
-            <p>
-        </div>
-
-    </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.card');
+    const slider = document.querySelector('.slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const slides = document.querySelectorAll('.slider-card');
+    
+    const slideWidth = slides[0].offsetWidth + 500; // Adjust for margin/padding
+    const totalSlides = slides.length;
 
-            cards.forEach(function (card) {
-                const expandedCard = card.querySelector('.expanded-card');
-                const moreInfoButton = card.querySelector('.more-info-button');
-                const closeButton = card.querySelector('.close-button');
+    let currentIndex = 0;
+    let autoSlideInterval;
 
-                // Function to show the expanded card
-                function showExpandedCard() {
-                    expandedCard.style.display = 'block';
-                }
+    // Update slider position with smooth animation
+    function updateSliderPosition() {
+        slider.style.transition = 'transform 0.3s ease-in-out';
+        slider.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+    }
 
-                // Function to hide the expanded card
-                function hideExpandedCard() {
-                    expandedCard.style.display = 'none';
-                }
+    // Loop the slider for infinite effect
+    function handleNext() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSliderPosition();
+    }
 
-                moreInfoButton.addEventListener('click', function (event) {
-                    event.stopPropagation(); // Prevent the click event from bubbling to the card
-                    showExpandedCard();
-                });
+    function handlePrev() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSliderPosition();
+    }
 
-                closeButton.addEventListener('click', function (event) {
-                    event.stopPropagation(); // Prevent the click event from bubbling to the card
-                    hideExpandedCard();
-                });
+    // Add event listeners for buttons
+    nextBtn.addEventListener('click', handleNext);
+    prevBtn.addEventListener('click', handlePrev);
 
-                card.addEventListener('click', function (event) {
-                    // Toggle the visibility of the expanded card
-                    if (event.target !== moreInfoButton && event.target !== expandedCard) {
-                        hideExpandedCard();
-                    }
-                });
-            });
+    // Auto-slide every 3 seconds
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(handleNext, 2000);
+    }
 
-            // Add event listener to close the overlay when pressing 'Escape'
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' || event.keyCode === 27) {
-                    cards.forEach(function (card) {
-                        const expandedCard = card.querySelector('.expanded-card');
-                        expandedCard.style.display = 'none';
-                    });
-                }
-            });
-        });
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Pause auto-slide on hover
+    slider.addEventListener('mouseover', stopAutoSlide);
+    slider.addEventListener('mouseout', startAutoSlide);
+
+    // Start auto-slide on load
+    startAutoSlide();
+
+    // Responsive adjustment for different screen sizes
+    window.addEventListener('resize', function () {
+        slider.style.transition = 'none'; // Disable animation during resize
+        currentIndex = 0; // Reset to first slide on resize
+        updateSliderPosition();
+    });
+});
     </script>
 
     <script>
