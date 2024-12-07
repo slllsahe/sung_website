@@ -83,30 +83,19 @@
 
 <body>
     <div id="navigation-container"></div>
+    
     <main>
         <!-- Group 1: countBox1 and countBox2 -->
         <div class="countGroup">
             <div class="countBox countBox1">
-                <strong>Goal</strong>
-
-                Number of Can/Plastic to recycle
-                <br>
-                1,480
-                <br>
-                Nectar point
-                <br>
-                14,800
-                <br>
-                Avios point
-                <br>
-                9,250
+                
+                <div class="chartLabel"><strong>Total number of Can/Plastic to recycled</strong></div>
+                <div class="countNumber" id="totalValue"></div>
+                
             </div>
             <div class="countBox countBox3">
 
-                <strong>Current</strong>
-
-                <div class="chartLabel">Can/Plastic recyled</div>
-                <div class="countNumber" id="totalValue"></div>
+                <strong>Point breakdown</strong>
 
                 <div class="chartLabel">Nectar point</div>
                 <div class="countNumber" id="totalAviosValue"></div>
@@ -144,8 +133,8 @@
     <script>
 
         // Data for each month (January to December)
-        var dataPlastics = [36, 44, 121, 21, 110, 9, 36, 0, 0, 0, 0, 0];
-        var dataCans = [26, 91, 73, 21, 33, 86, 50, 0, 0, 0, 0, 0];
+        var dataPlastics = [36, 44, 121, 21, 110, 9, 36, 60, 10, 30, 20, 50];
+        var dataCans = [26, 91, 73, 21, 33, 86, 50, 70, 10, 20, 30, 30];
 
         var totalPlastics = dataPlastics.reduce((a, b) => a + b, 0); // Sum of plastics recycled
         var totalCans = dataCans.reduce((a, b) => a + b, 0); // Sum of cans recycled

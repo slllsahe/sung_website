@@ -24,22 +24,30 @@
         * {
             margin: revert;
         }
-    
-        p, ol, ul, li {
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        p,
+        ol,
+        ul,
+        li {
             font-size: 1.2rem;
         }
-    
+
         p {
             font-size: 19px;
         }
-    
+
         h1 {
             font-size: 3rem;
             margin: 0 0 1rem;
             text-align: center;
             padding: 10px;
         }
-    
+
         /* Columns Layout */
         .column {
             float: left;
@@ -48,25 +56,25 @@
             height: 650px;
             font-size: 18px;
         }
-    
+
         .row:after {
             content: "";
             display: table;
             clear: both;
         }
-    
+
         @media screen and (max-width: 852px) {
             .column {
                 width: 100%;
             }
         }
-    
+
         /* Header Styling */
         .header {
             font-size: 30px;
             padding: 50px;
         }
-    
+
         /* Banner Grid and Text */
         .banner-grid {
             display: grid;
@@ -74,30 +82,31 @@
             justify-items: stretch;
             background-color: white;
         }
-    
+
         @media screen and (min-width: 1756px) {
             .banner-grid {
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
             }
         }
-    
+
         .banner-text {
             padding: 50px 150px;
         }
-    
+
         .banner-text2 {
             padding: 50px 250px;
             background-color: white;
         }
-    
+
         @media screen and (max-width: 768px) {
+
             .banner-text,
             .banner-text2 {
                 padding: 0;
             }
         }
-    
+
         /* Video Container */
         .video-container {
             position: relative;
@@ -106,7 +115,7 @@
             margin: 10px auto 0;
             overflow: hidden;
         }
-    
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -115,14 +124,14 @@
             height: 100%;
             border-radius: 12px;
         }
-    
+
         @media screen and (max-width: 768px) {
             .video-container {
                 max-width: 100%;
                 padding-bottom: 80%;
             }
         }
-    
+
         /* Button Styling */
         button {
             border: none;
@@ -134,15 +143,15 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-    
+
         button:hover {
             background-color: #333;
         }
-    
+
         button:focus {
             outline: none;
         }
-    
+
         /* Slider and Card Styling */
         .slider-container {
             width: 100%;
@@ -151,8 +160,9 @@
             white-space: nowrap;
             padding: 10px;
         }
-    
-        .slider-card, .card {
+
+        .slider-card,
+        .card {
             display: inline-block;
             width: 300px;
             margin-right: 20px;
@@ -161,26 +171,27 @@
             border-radius: 12px;
             overflow: hidden;
         }
-    
+
         .slider-card img,
         .card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-    
+
         .slider-card h3 {
             margin: 20px;
             font-size: 1.5rem;
             font-weight: bold;
         }
-    
-        .slider-card p, .card p {
+
+        .slider-card p,
+        .card p {
             margin: 0 20px 20px;
             font-size: 1rem;
             color: #555;
         }
-    
+
         /* Card Layout and Expansion */
         .expanded-card {
             display: none;
@@ -196,46 +207,48 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
             overflow-y: scroll;
         }
-    
+
         /* Utility Classes */
-        .prev-btn, .next-btn {
+        .prev-btn,
+        .next-btn {
             position: absolute;
             transform: translateY(-350%);
         }
-    
+
         .prev-btn {
             left: 1%;
         }
-    
+
         .next-btn {
             right: 1%;
         }
-    
+
         .responsive-image {
             max-width: 100%;
             height: auto;
         }
-    
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             .slider-container {
                 scroll-snap-type: x mandatory;
             }
-    
+
             .slider-card {
                 flex: 0 0 80%;
                 margin: 0 auto;
             }
-    
-            .prev-btn, .next-btn {
+
+            .prev-btn,
+            .next-btn {
                 display: none;
             }
         }
-    
+
         .card:hover {
             transform: translateY(-10px);
         }
-    
+
         .slider-container {
             width: 100%;
             overflow-x: scroll;
@@ -291,7 +304,7 @@
         /* Styling for the 'More Info' button */
         .more-info-button {
             padding: 8px 16px;
-            background-color: #000;
+            background-color: black;
             color: white;
             border: none;
             border-radius: 12px;
@@ -595,7 +608,7 @@
                         alt="Card Image">
                     <h2>Trash2Flight</h2>
                     <p>Plastic turned flight ticket.</p>
-                    <button class="more-info-button">More Info</button>
+                    <button class="more-info-button"><a href="trashtoflight.html">More Info</a></button>
                 </div>
 
 
@@ -604,7 +617,7 @@
                         alt="Card Image">
                     <h2>ReUseMe</h2>
                     <p>Bag Swap Station - Reuse me!</p>
-                    <button class="more-info-button">More Info</button>
+                    <button class="more-info-button"><a href="reuseme.html">More Info</a></button>
                 </div>
             </div>
     </main>
