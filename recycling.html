@@ -389,10 +389,8 @@
         }
 
         .card {
-            min-width: 280px;
+            min-width: 250px;
             /* Ensure cards fit well on smaller screens */
-            flex: 0 0 auto;
-            /* Prevent shrinking of cards */
             scroll-snap-align: center;
             /* Center the card on snap */
         }
@@ -695,7 +693,6 @@
             const totalSlides = slides.length;
 
             let currentIndex = 0;
-            let autoSlideInterval;
 
             // Update slider position with smooth animation
             function updateSliderPosition() {
@@ -721,25 +718,6 @@
             // Add event listeners for buttons
             nextBtn.addEventListener('click', handleNext);
             prevBtn.addEventListener('click', handlePrev);
-
-            // Auto-slide every 3 seconds
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 2) % totalSlides;
-                    updateSliderPosition();
-                }, 2500);
-            }
-
-            function stopAutoSlide() {
-                clearInterval(autoSlideInterval);
-            }
-
-            // Pause auto-slide on hover
-            slider.addEventListener('mouseover', stopAutoSlide);
-            slider.addEventListener('mouseout', startAutoSlide);
-
-            // Start auto-slide on load
-            startAutoSlide();
 
             // Responsive adjustment for different screen sizes
             window.addEventListener('resize', () => {
