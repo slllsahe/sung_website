@@ -297,6 +297,48 @@
                 font-size: var(--FontParagraph);
             }
         }
+
+        picture {
+            display: flex;
+            justify-content: center;
+            /* Center the image horizontally */
+            align-items: center;
+            /* Center the image vertically */
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevents overflow outside the window */
+        }
+
+        picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Makes the image fit the window without stretching */
+        }
+
+        .text-middle-rhs {
+            position: absolute;
+            /* Place it absolutely relative to the parent */
+            top: 50%;
+            /* Align to middle vertically */
+            right: 5%;
+            /* Place it near the right edge */
+            transform: translateY(-50%);
+            /* Offset the element to center vertically */
+            color: white;
+            /* Text color */
+            font-size: 1.8rem;
+            /* Adjust font size */
+            text-align: right;
+            /* Align text to the right */
+            padding: 1rem;
+            /* Add spacing around the text */
+            border-radius: 8px;
+            /* Optional: Rounded corners */
+            max-width: 300px;
+            /* Prevent it from being too wide */
+        }
     </style>
 
     <!-- Insert CSS style -->
@@ -307,19 +349,14 @@
 <body>
     <div id="navigation-container"></div>
 
-    <div id="wrapper">
-        <h1>Welcome to Sung Lee's Portfolio</h1>
-        <p>Scroll down to see me</p>
-    </div>
+    <picture>
+        <img src="sungProfile1.jpg" alt="Sung Lee Profile Image">
+    </picture>
 
-    <div id="ImgWrapper">
-        <img id="img1" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%207.jpeg" alt="">
-        <img id="img2" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%202.jpeg" alt="">
-        <img id="img3" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%206.jpeg" alt="">
-        <img id="img4" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%205.jpeg" alt="">
-        <img id="img5" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%203.jpeg" alt="">
-        <img id="img6" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%204.jpeg" alt="">
-        <img id="img7" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%201.jpeg" alt="">
+    <!-- Inserted Text -->
+    <div class="text-middle-rhs">
+        <h2>Hello, I'm Sung Lee</h2>
+        <p>Discover more about me</p>
     </div>
 
     <script>
