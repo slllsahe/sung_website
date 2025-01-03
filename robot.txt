@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://slllsahe.github.io/sung_website/index.html/sitemap.xml
-Sitemap: https://slllsahe.github.io/sung_website/about.html/sitemap.xml
-Sitemap: https://slllsahe.github.io/sung_website/service.html/sitemap.xml
+Sitemap: https://slllsahe.github.io/sung_website/sitemap.xml
