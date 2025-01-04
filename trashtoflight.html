@@ -9,11 +9,26 @@
 
     <!-- add icon link -->
     <link rel="icon" href="SLicon.jpg" type="image/x-icon">
-    
+
     <!-- SEO -->
-    <meta name="description" content="Discover how Sung Lee turns trash into flight tickets by recycling plastics and cans.">
-    <meta name="keywords" content="Trash2Flight, recycling, Sung Lee, environment, eco-friendly, sustainability, plastics, cans, avios points">
+    <meta name="description"
+        content="Discover how Sung Lee turns trash into flight tickets by recycling plastics and cans.">
+    <meta name="keywords"
+        content="Trash2Flight, recycling, Sung Lee, environment, eco-friendly, sustainability, plastics, cans, avios points">
+
+    <!-- Canonical -->
     <link rel="canonical" href="https://slllsahe.github.io/sung_website/trash2flight.html">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DVM3B5L');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- Insert CSS style -->
     <link rel="stylesheet" href="style.css">
@@ -210,20 +225,25 @@
         }
 
         .slide-number {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 8px 16px;
-    border-radius: 8px;
-}
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DVM3B5L" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="banner-text2">
         <h1>Turn plastics and cans with Flight ticket</h1>
@@ -306,24 +326,21 @@
 
             <div class="card-container">
                 <div class="card" data-category="category1">
-                    <img src="collect.jpg"
-                        alt="Card Image">
+                    <img src="collect.jpg" alt="Card Image">
                     <h2>Collect</h2>
                     <p>Plastic turned flight ticket.</p>
                     <button class="more-info-button"><a href="trashtoflight.html">More Info</a></button>
                 </div>
 
                 <div class="card" data-category="category1">
-                    <img src="recyle.png"
-                        alt="Card Image">
+                    <img src="recyle.png" alt="Card Image">
                     <h2>Recyle</h2>
                     <p>Plastic turned flight ticket.</p>
                     <button class="more-info-button"><a href="trashtoflight.html">More Info</a></button>
                 </div>
 
                 <div class="card" data-category="category1">
-                    <img src="convert.png"
-                        alt="Card Image">
+                    <img src="convert.png" alt="Card Image">
                     <h2>Convert</h2>
                     <p>Plastic turned flight ticket.</p>
                     <button class="more-info-button"><a href="trashtoflight.html">More Info</a></button>
@@ -389,27 +406,27 @@
     </script>
 
     <script>
-       let slideIndex = 1;
-showSlides(slideIndex);
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
 
-function showSlides(n) {
-    let slides = document.getElementsByClassName("mySlides");
-    let slideNumberElement = document.getElementById("slideNumber");
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("mySlides");
+            let slideNumberElement = document.getElementById("slideNumber");
 
-    if (n > slides.length) { slideIndex = 1; }
-    if (n < 1) { slideIndex = slides.length; }
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
 
-    slides[slideIndex - 1].style.display = "flex";
-    slideNumberElement.innerHTML = `${slideIndex} / ${slides.length}`;
-}
+            slides[slideIndex - 1].style.display = "flex";
+            slideNumberElement.innerHTML = `${slideIndex} / ${slides.length}`;
+        }
     </script>
 
     <script>
