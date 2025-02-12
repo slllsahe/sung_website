@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://slllsahe.github.io/sung_website/sitemap.xml
+
+Sitemap: https://slllsahe.github.io/sung_website/robot.txt
