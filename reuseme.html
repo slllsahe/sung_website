@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S L | ReUseMe</title>
+
+    <!-- Add icon link -->
+    <link rel="icon" href="SLicon.png" type="image/x-icon">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Discover the value of recycling and sustainability through the ReUseMe initiative by Sung Lee. Join us in reducing waste and promoting eco-friendly practices.">
+    <meta name="keywords"
+        content="Recycling, ReUseMe, Sustainability, Eco-Friendly, Sung Lee, Waste Reduction, Frankfurt">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://slllsahe.github.io/sung_website/reuseme.html">
+    <meta name="author" content="Sung Lee">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DVM3B5L');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landingpage.css">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        /* Cards Section */
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            overflow-x: auto;
+            width: 100%;
+            margin: 0 auto;
+            list-style: none;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .cards.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .cards_item {
+            flex: 0 0 70%;
+            /* Adjust card width for slider effect */
+            max-width: 330px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .card_image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card_content {
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .card_title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Section Animation */
+        section {
+            width: 67%;
+            margin: 20px auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        p {
+            line-height: 1.6;
+            padding-bottom: 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            padding: 10px 0;
+            list-style: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .breadcrumb li {
+            font-size: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #000;
+        }
+
+        .breadcrumb-separator {
+            color: #000;
+        }
+
+        /* Key Visual Section */
+        .kv-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .kv-image img {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .kv-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            text-align: left;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .kv-content h1 {
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: rgb(136, 170, 136);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 768px) {
+            .kv-content {
+                transform: translateY(-40%);
+                padding: 15px;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .kv-content {
+                transform: translateY(-30%);
+                padding: 10px;
+            }
+
+            .kv-content h1 {
+                font-size: 0.8rem;
+            }
+
+            .kv-content p {
+                font-size: 0.8rem;
+                padding-bottom: 10px;
+            }
+
+            .cta-button {
+                padding: 5px 10px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DVM3B5L" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="navigation-container"></div>
+
+    <main>
+        <!-- Key Visual Section -->
+        <header class="kv-container">
+            <div class="kv-image">
+                <img src="reuseme.jpg" alt="Bag Swap Station">
+                <div class="kv-content">
+                    <h1 class="kv-heading">Bag Swap Station – Reuse me!</h1>
+                    <p>Join us in making Frankfurt waste-free.<br>Reuse bags and contribute to a greener city!</p>
+                    <a href="https://ewwr.eu/bag-swap-station-reuse-me/" class="cta-button">Learn More</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Impact Section -->
+        <section>
+
+            <h1>
+                <strong>
+                    The Impact
+                </strong>
+            </h1>
+            <p>
+                The Bag Swap Station Program is a shining example of Frankfurt’s commitment to sustainability and waste
+                reduction.
+                By simply rethinking our bag usage and participating in this initiative, we can all contribute to making
+                our city cleaner, greener, and more environmentally friendly.
+            </p>
+            <p>
+                By participating in the Bag Swap Station Program, citizens are directly contributing to Frankfurt’s
+                transformation into a waste-free city.
+                Reusing bags reduces the demand for new bags, which cuts down the production of new materials and waste.
+                The program also promotes responsible resource use, aligning with global sustainability goals.
+                Additionally, sharing bags fosters a sense of community and encourages cooperation among citizens to
+                achieve a common environmental goal.
+            </p>
+        </section>
+
+        <!-- Card Section -->
+        <section>
+            <ul class="cards">
+                <li class="cards_item">
+                    <div class="card">
+                        <div class="card_image"><img src="reuseme1.jpeg" alt="Card Image">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title">21.11.2023</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="cards_item">
+                    <div class="card">
+                        <div class="card_image"><img src="reuseme2.jpeg" alt="Card Image">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title">27.12.2023</h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="cards_item">
+                    <div class="card">
+                        <div class="card_image"><img src="reuseme3.jpeg" alt="Card Image">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title">29.09.2024</h2>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="about.html">About</a></li>
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="recycling.html">Recycle</a></li>
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="reuseme.html">ReUseMe</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <p>© 2025 Sung Lee. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+            const cards = document.querySelector(".cards");
+
+            const revealContent = () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const viewportHeight = window.innerHeight;
+
+                    if (sectionTop < viewportHeight - 100) {
+                        section.classList.add("visible");
+                        if (section.contains(cards)) {
+                            cards.classList.add("visible");
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", revealContent);
+            revealContent();
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navigation.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navigation-container").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log("Error fetching navigation bar:", error);
+                    document.getElementById("navigation-container").innerHTML = "<p>Navigation bar failed to load.</p>";
+                });
+        });
+    </script>
+</body>
+
+</html>

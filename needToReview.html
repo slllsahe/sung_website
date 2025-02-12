@@ -1,0 +1,114 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Navigation Menu */
+.menu {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-logo {
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-btn {
+    display: none;
+}
+
+.nav-items {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-items a {
+    color: #efefef;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-logo:hover,
+.nav-items a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Hide the checkbox */
+#nav-check {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 50px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        height: calc(100vh - 50px);
+        z-index: 9999;
+    }
+
+    #nav-check:checked + .nav-items {
+        display: flex;
+    }
+
+    .nav-btn {
+        display: block;
+    }
+
+    .nav-btn label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+    }
+
+    .nav-btn label span {
+        background-color: white;
+        height: 3px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    /* SL logo on left, hamburger on right */
+    .menu {
+        justify-content: space-between;
+    }
+
+    .nav-items a {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        color: #fff;
+        border-bottom: 1px solid #444;
+    }
+
+    #nav-check:not(:checked) + .nav-items {
+        height: 0;
+        overflow: hidden;
+    }
+
+    #nav-check:checked + .nav-items {
+        height: calc(100vh - 50px);
+    }
+}

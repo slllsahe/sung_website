@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Read by Sung Lee | Reading List</title>
+
+    <!-- add icon link -->
+    <link rel="icon" href="SLicon.png" type="image/x-icon">
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Discover the list of books read by Sung Lee, including genres like philosophy, history, economics, and general topics.">
+    <meta name="keywords"
+        content="Sung Lee, books read, reading list, Sung Lee's books, philosophy books, history books, economic books">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://slllsahe.github.io/sung_website/read.html">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DVM3B5L');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Insert Navigation CSS style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Insert Landing page CSS style -->
+    <link rel="stylesheet" href="landingpage.css">
+
+    <!-- Insert Read page CSS style -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Card Container */
+        .card-container {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Individual Cards */
+        .card {
+            width: 300px;
+            background-color: white;
+            border: none;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            padding-bottom: 80px;
+            /* Add space for the button */
+        }
+
+        .card h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            padding-top: 25px;
+        }
+
+        .card p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Expanded Card */
+        .expanded-card {
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            overflow-y: scroll;
+            display: none;
+            transition: all 0.4s ease;
+        }
+
+        /* "More Info" Button */
+        .more-info-button {
+            position: absolute;
+            bottom: 20px;
+            margin-top: auto;
+            padding: 10px 20px;
+            border-radius: 12px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black */
+            z-index: 999;
+            /* Below the expanded card */
+            display: none;
+            /* Initially hidden */
+        }
+
+        /* Apply clicked state */
+        .more-info-button.clicked {
+            background-color: #444;
+        }
+
+        .more-info-button:hover {
+            background-color: #444;
+        }
+
+        /* Category Buttons */
+        .category-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-button:hover {
+            background-color: #444;
+        }
+
+        .category-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Close Button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #444;
+        }
+
+        /* Expanded Content */
+        .expanded-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-left img {
+            max-width: 100%;
+            border-radius: 10px;
+            padding: 20%;
+        }
+
+        .column-right {
+            flex-grow: 1;
+            font-size: 16px;
+            color: #666;
+            padding: 7%;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+
+            /* Make buttons full width on mobile */
+            .more-info-button {
+
+                margin-top: 10px;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .more-info-button.clicked {
+                background-color: #444;
+            }
+
+            /* Align card contents on mobile */
+            .card {
+                justify-content: flex-start;
+            }
+
+            /* Adjust category buttons */
+            .category-button {
+                max-width: calc(50% - 20px);
+                font-size: 14px;
+            }
+        }
+
+        /* Responsive for larger screens */
+        @media (min-width: 768px) {
+            .expanded-content {
+                flex-direction: row;
+            }
+
+            .column-left {
+                flex: 1;
+                margin-right: 20px;
+            }
+
+            .column-right {
+                flex: 2;
+            }
+        }
+
+        /* Adjustments for larger screens */
+        @media (min-width: 768px) {
+            .expanded-content {
+                flex-direction: row;
+            }
+
+            .column-left {
+                flex: 1.5;
+                /* Increased width to give more space to the image */
+                margin-right: 20px;
+            }
+
+            .column-left img {
+                width: 100%;
+                height: auto;
+                /* Ensures the image scales nicely */
+                border-radius: 12px;
+                object-fit: cover;
+                /* Ensures image covers its container without being stretched */
+            }
+
+            .column-right {
+                flex: 2;
+                /* Keeps a balance between text and image */
+                padding-left: 20px;
+            }
+
+            .expanded-card {
+                width: 80%;
+                height: 80%;
+                max-width: 1000px;
+                /* Allows for a slightly larger max width on desktop */
+                max-height: 80vh;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DVM3B5L" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <div id="navigation-container"></div>
+    <!-- Header section -->
+    <header>
+        <br>
+        <h3>My knowledge collection</h3>
+        <p>
+            “The longer you look back, the farther you can look forward.”
+            <br>
+            Winston S. Churchill
+        </p>
+        <hr>
+    </header>
+
+    <!-- Category Filter buttons -->
+    <div class="category-button-container">
+        <button class="category-button" data-category="all">All</button>
+        <button class="category-button" data-category="philosophy">Philosophy</button>
+        <button class="category-button" data-category="history">History</button>
+        <button class="category-button" data-category="economic">Economic</button>
+        <button class="category-button" data-category="general">General</button>
+    </div>
+
+    <!-- Card container -->
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card" data-category="philosophy">
+            <h2>What is Justice?</h2>
+            <p>written by Michael J. Sandel</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" data-category="history">
+            <h2>What is History?</h2>
+            <p>written by E.H. Carr</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" data-category="philosophy">
+            <h2>What is Art?</h2>
+            <p>written by Leo Tolstoy</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" data-category="philosophy">
+            <h2>The theory of the leisure class</h2>
+            <p>written by Thorstein Veblen</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card" data-category="philosophy">
+            <h2>The General Theory of Employment, Interest and Money</h2>
+            <p>written by John Maynard Keynes</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card" data-category="economic">
+            <h2>The open society and its enemies</h2>
+            <p>written by Karl Popper</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card" data-category="economic">
+            <h2>Progress and poverty</h2>
+            <p>written by Henry george</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card" data-category="economic">
+            <h2>Peddling prosperity</h2>
+            <p>written by Paul krugman</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card" data-category="history">
+            <h2>The Memoirs of Han China</h2>
+            <p>written by Ssu-Ma Ch'ien</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card" data-category="history">
+            <h2>Nanjung Ilgi: War Diary</h2>
+            <p>written by Admiral Yi Sun-sin</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="card" data-category="philosophy">
+            <h2>Tao Te Ching</h2>
+            <p>written by Lao Tzu</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="card" data-category="philosophy">
+            <h2>On Liberty</h2>
+            <p>written by John Stuart Mill</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="card" data-category="philosophy">
+            <h2>The Communist Manifesto</h2>
+            <p>written by Karl Marx and Friedrich Engels</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="card" data-category="philosophy">
+            <h2>The Social Contract</h2>
+            <p>written by Jean-Jacques Rousseau</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="card" data-category="philosophy">
+            <h2>The prince</h2>
+            <p>written by Niccolo Machiavelli</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 16 -->
+        <div class="card" data-category="philosophy">
+            <h2>Apology, Crito, and Phaedo of Socrates</h2>
+            <p>written by Plato</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 17 -->
+        <div class="card" data-category="philosophy">
+            <h2>Nicomachean Ethics</h2>
+            <p>written by Aristotle</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 18 -->
+        <div class="card" data-category="philosophy">
+            <h2>Walk-in the Classic Law books</h2>
+            <p>written by Cho Kuk</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 19 -->
+        <div class="card" data-category="general">
+            <h2>What I Talk About When I Talk About Running</h2>
+            <p>written by Haruki Murakami</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 20 -->
+        <div class="card" data-category="history">
+            <h2>Korean history</h2>
+            <p>written by Choi tae sung</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 21 -->
+        <div class="card" data-category="general">
+            <h2>A bit of Art & Humanities</h2>
+            <p>written by Choi Jin-ki</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 22 -->
+        <div class="card" data-category="economic">
+            <h2>Economics, The User's Guide</h2>
+            <p>written by Jang Ha-Joon</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 23 -->
+        <div class="card" data-category="general">
+            <h2>Reversal</h2>
+            <p>written by Ja-chung</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 24 -->
+        <div class="card" data-category="general">
+            <h2>The Cafe on the Edge of the World: A Story About the Meaning of Life</h2>
+            <p>written by John P. Strelecky</p>
+            <button class="more-info-button">More Info</button>
+            <div class="expanded-card">
+                <button class="close-button">Close</button>
+                <h2></h2>
+                <div class="expanded-content">
+                    <div class="column-left">
+                        <img src="" alt="Image Description">
+                    </div>
+                    <div class="column-right">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Read page JS section-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.querySelector(".overlay");
+            const categoryButtons = document.querySelectorAll(".category-button");
+            const cards = document.querySelectorAll(".card");
+            const moreInfoButtons = document.querySelectorAll(".more-info-button");
+            const closeButtons = document.querySelectorAll(".close-button");
+
+            // Function to fetch data from JSON file
+            async function fetchData() {
+                try {
+                    const response = await fetch('books.json');
+                    const data = await response.json();
+
+                    const expandedCards = document.querySelectorAll(".expanded-card");
+                    expandedCards.forEach((expandedCard, index) => {
+                        const cardData = data[index];
+                        const title = expandedCard.querySelector("h2");
+                        const description = expandedCard.querySelector("p");
+                        const img = expandedCard.querySelector("img");
+
+                        title.textContent = cardData.title;
+                        description.textContent = cardData.description;
+                        img.src = cardData.imageUrl;
+                        img.alt = "Image Description";
+                    });
+                } catch (error) {
+                    console.log('Error fetching data:', error);
+                }
+            }
+
+            // Call the function to fetch and populate data
+            fetchData();
+
+            // Category filtering functionality
+            categoryButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const selectedCategory = button.getAttribute("data-category");
+
+                    cards.forEach(card => {
+                        const cardCategory = card.getAttribute("data-category");
+                        card.style.display = (selectedCategory === "all" || selectedCategory === cardCategory) ? "block" : "none";
+                    });
+                });
+            });
+
+            // Show the expanded card and overlay when either the ".card" or ".more-info-button" is clicked
+            cards.forEach(card => {
+                card.addEventListener("click", (event) => {
+                    event.stopPropagation();
+
+                    document.querySelectorAll(".expanded-card").forEach(expandedCard => {
+                        expandedCard.style.display = "none";
+                    });
+
+                    const expandedCard = card.querySelector(".expanded-card");
+                    expandedCard.style.display = "block";
+                    overlay.style.display = "block"; // Show the overlay
+                    card.classList.add("clicked");
+                });
+            });
+
+            // Prevent the card click event when clicking the "More Info" button
+            moreInfoButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.stopPropagation();
+
+                    document.querySelectorAll(".expanded-card").forEach(card => {
+                        card.style.display = "none";
+                    });
+
+                    const expandedCard = button.nextElementSibling;
+                    expandedCard.style.display = "block";
+                    overlay.style.display = "block"; // Show the overlay
+                    button.closest(".card").classList.add("clicked");
+                });
+            });
+
+            // Close the expanded card and overlay when the close button is clicked
+            closeButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    const expandedCard = button.closest(".expanded-card");
+                    expandedCard.style.display = "none";
+                    overlay.style.display = "none"; // Hide the overlay
+                });
+            });
+
+            // Close the expanded card and overlay by clicking outside of it
+            overlay.addEventListener("click", () => {
+                document.querySelectorAll(".expanded-card").forEach(expandedCard => {
+                    expandedCard.style.display = "none";
+                });
+                overlay.style.display = "none"; // Hide the overlay
+            });
+
+            // Close the expanded card and overlay using the Escape key
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") {
+                    document.querySelectorAll(".expanded-card").forEach(expandedCard => {
+                        expandedCard.style.display = "none";
+                    });
+                    overlay.style.display = "none"; // Hide the overlay
+                }
+            });
+        });
+
+
+    </script>
+
+    <!--GNB JS section-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navigation.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navigation-container").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log("Error fetching navigation bar:", error);
+                    document.getElementById("navigation-container").innerHTML = "<p>Navigation bar failed to load.</p>";
+                });
+        });
+    </script>
+
+    <!--Footer section-->
+    <footer>
+        <!--Breadcrumbs-->
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="about.html">About</a></li>
+
+                <span class="breadcrumb-separator">/</span>
+                <li><a href="read.html">Read</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <div>
+            <p>
+                © 2025 Sung Lee. All rights reserved.</p>
+            <p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
