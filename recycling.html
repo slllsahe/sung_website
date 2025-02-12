@@ -19,6 +19,17 @@
     <!-- Insert Landing page CSS style -->
     <link rel="stylesheet" href="landingpage.css">
 
+    <!-- URL redirect -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var url = window.location.pathname;
+            if (url.endsWith(".html")) {
+                var newUrl = url.replace(".html", "");
+                window.history.replaceState(null, null, newUrl);
+            }
+        });
+    </script>
+
     <style>
         /* General Reset and Styling */
         * {
@@ -611,8 +622,7 @@
 
 
                 <div class="card" data-category="category1">
-                    <img src="images/reuseme.png"
-                        alt="Card Image">
+                    <img src="images/reuseme.png" alt="Card Image">
                     <h2>ReUseMe</h2>
                     <p>Bag Swap Station - Reuse me!</p>
                     <button class="more-info-button"><a href="reuseme.html">More Info</a></button>

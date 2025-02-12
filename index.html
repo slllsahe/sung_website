@@ -42,6 +42,17 @@
         })(window, document, 'script', 'dataLayer', 'GTM-5DVM3B5L');</script>
     <!-- End Google Tag Manager -->
 
+    <!-- URL redirect -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var url = window.location.pathname;
+            if (url.endsWith(".html")) {
+                var newUrl = url.replace(".html", "");
+                window.history.replaceState(null, null, newUrl);
+            }
+        });
+      </script>
+
     <style>
         :root {
             font-family: Helvetica;
