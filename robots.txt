@@ -1,3 +1,4 @@
 User-agent: *
-Allow: /
-Sitemap: https://slllsahe.github.io/sung_website/sitemap.xml
+Disallow:
+
+Sitemap: https://leesung.co.uk/sitemap.xml
